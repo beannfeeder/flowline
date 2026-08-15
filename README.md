@@ -1,12 +1,16 @@
-# Driftline: A Cash-Flow Forecaster
+# Flowline: A Cash-Flow Forecaster
+
+## Deployed Website
+
+[Flowline: A Cash-Flow Forecaster](https://flowline-phi.vercel.app/) 
 
 ## Planning and Approach
 
-The development of Driftline focused on building a seamless, client-side application for cash-flow projection and financial analysis. The approach prioritized modularity by heavily separating the core mathematical forecasting algorithms and insights generation from the user interface. By leveraging a component-based architecture, the app allows users to interact with a dedicated flow editor, view quick summary cards, and analyze visual forecast charts in a unified, single-page dashboard.
+The development of Flowline focused on building a seamless, client-side application for cash-flow projection and financial analysis. The approach prioritized modularity by heavily separating the core mathematical forecasting algorithms and insights generation from the user interface. By leveraging a component-based architecture, the app allows users to interact with a dedicated flow editor, view quick summary cards, and analyze visual forecast charts in a unified, single-page dashboard.
 
 ## Architecture Overview & Tech Stack
 
-Driftline is built on a modern, frontend-focused architecture that relies on client-side state management to handle user data without requiring a backend database.
+Flowline is built on a modern, frontend-focused architecture that relies on client-side state management to handle user data without requiring a backend database.
 
 * **Core Framework:** Next.js (utilizing the App Router).
 
@@ -65,7 +69,7 @@ This flowchart illustrates how user inputs are processed and rendered on the scr
 
 ```mermaid
 graph TD
-    A[User opens Driftline] --> B[App loads existing data via use-local-storage]
+    A[User opens Flowline] --> B[App loads existing data via use-local-storage]
     B --> C[User adds/edits entry in flow-editor.tsx]
     C --> D[lib/forecast.ts calculates new projections]
     D --> E[overview-panel.tsx updates Summary Cards & Forecast Chart]
