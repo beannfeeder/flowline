@@ -59,7 +59,7 @@ function download(buffer: ArrayBuffer, filename: string) {
 
 export async function exportForecastToExcel({ forecast, items }: ExportArgs) {
   const wb = new ExcelJS.Workbook()
-  wb.creator = 'Driftline'
+  wb.creator = 'Flowline'
   wb.created = new Date()
 
   /* ------------------------------------------------------------------ */
@@ -76,7 +76,7 @@ export async function exportForecastToExcel({ forecast, items }: ExportArgs) {
   ]
 
   const title = overview.getCell('A1')
-  title.value = 'Driftline — Cash-Flow Forecast'
+  title.value = 'Flowline — Cash-Flow Forecast'
   title.font = { bold: true, size: 18, color: { argb: INK } }
   overview.getCell('A2').value = `${formatShortDate(forecast.startDate)} → ${formatShortDate(
     forecast.endDate,
@@ -355,5 +355,5 @@ export async function exportForecastToExcel({ forecast, items }: ExportArgs) {
 
   /* ------------------------------------------------------------------ */
   const buffer = await wb.xlsx.writeBuffer()
-  download(buffer as ArrayBuffer, `driftline-forecast-${forecast.startDate}.xlsx`)
+  download(buffer as ArrayBuffer, `flowline-forecast-${forecast.startDate}.xlsx`)
 }

@@ -16,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Driftline — Cash-Flow Forecaster',
+  title: 'Flowline — Cash-Flow Forecaster',
   description:
     'Plug in your income and recurring bills to see your projected balance across the month and know the exact day things get tight. Works offline.',
   generator: 'v0.app',
