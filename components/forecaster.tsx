@@ -111,14 +111,14 @@ export function Forecaster() {
               <Waves className="size-5" />
             </span>
             <span className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-              Driftline
+              Flowline
             </span>
           </div>
           <h1 className="mt-3 text-2xl font-bold tracking-tight text-foreground text-balance sm:text-3xl">
             See exactly when your balance runs thin.
           </h1>
           <p className="mt-1.5 max-w-xl text-sm text-muted-foreground text-pretty">
-            Plug in your income and recurring bills. Driftline models every
+            Plug in your income and recurring bills. Flowline models every
             overlapping cycle and pinpoints the day cash gets tight — all in your
             browser, fully offline.
           </p>
@@ -298,7 +298,7 @@ export function Forecaster() {
       </div>
 
       <footer className="mt-10 border-t border-border pt-5 text-center text-xs text-muted-foreground">
-        {hydrated ? 'Saved on this device' : 'Loading…'} · Driftline stores
+        {hydrated ? 'Saved on this device' : 'Loading…'} · Flowline stores
         everything locally in your browser. No account, no cloud.
       </footer>
     </div>
