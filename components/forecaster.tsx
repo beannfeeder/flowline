@@ -78,6 +78,19 @@ export function Forecaster() {
   const income = state.items.filter((i) => i.kind === 'income')
   const expenses = state.items.filter((i) => i.kind === 'expense')
 
+  const [exporting, setExporting] = useState(false)
+  const handleExport = async () => {
+    setExporting(true)
+    try {
+      await exportForecastToExcel({ forecast, items: state.items })
+    } catch (err) {
+      console.log('[v0] Excel export failed:', err)
+      window.alert('Sorry, the export failed. Please try again.')
+    } finally {
+      setExporting(false)
+    }
+  }
+
   const addItem = (item: FlowItem) =>
     setState((s) => ({ ...s, items: [...s.items, item] }))
   const updateItem = (item: FlowItem) =>
@@ -110,22 +123,37 @@ export function Forecaster() {
             browser, fully offline.
           </p>
         </div>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => {
-            if (
-              window.confirm(
-                'Reset to the sample data? Your current entries will be cleared.',
-              )
-            ) {
-              setState(seedState())
-            }
-          }}
-        >
-          <RotateCcw />
-          Reset
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button
+            size="sm"
+            onClick={handleExport}
+            disabled={exporting}
+            aria-label="Export forecast to Excel"
+          >
+            {exporting ? (
+              <Loader2 className="animate-spin" />
+            ) : (
+              <FileSpreadsheet />
+            )}
+            {exporting ? 'Exporting…' : 'Export to Excel'}
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              if (
+                window.confirm(
+                  'Reset to the sample data? Your current entries will be cleared.',
+                )
+              ) {
+                setState(seedState())
+              }
+            }}
+          >
+            <RotateCcw />
+            Reset
+          </Button>
+        </div>
       </header>
 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)]">
